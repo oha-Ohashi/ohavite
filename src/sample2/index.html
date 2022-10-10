@@ -13,6 +13,9 @@
   <body>
 	<div class="container">
 		このページはPCでの閲覧を想定しています
+		<div class="mt-3 mb-3">
+			<h3>質問: <br>ばねに引っ張られながらでも目標地点に動くような物体のプログラム方法を教えてください！</h3>
+		</div>
 		<h3>やりたいこと</h3>
 		<ul class="list-group">
 			<li class="list-group-item"><strong>大目標: 最強のキーボード配列を作る</strong></li>
@@ -26,17 +29,59 @@
 			そこで人間の手に似た動きをするプログラムや3Dモデルを作り、それが与えられた文章を打鍵するのにかかった時間を評価指標にしたい。最終的な探索はランダムサーチとかでいいかな、とりあえず。
 			</li>
 			<li class="list-group-item"><strong>小目標(いま取り組んでいること): 平面を滑る8つの円</strong><br>
-			プログラム上で3行10列の盤を作り(いづれ様々な物理配列に対応したい)、その上に評価対象となるキーたちを配置し8つの点が平面上をスライドすることによって打鍵を再現する<br>
+			プログラム上で3行10列の盤を作り(いづれ様々な物理配列に対応したい)、その上に評価対象となるキーたちを配置し8つの点が平面上をスライドすることによって打鍵を再現する。<br>
 		
 		</ul>
 		<br>
 		<h3>やってみたこと</h3>
-		<div class="row">
-			<div class="col-6">
+		TypeScriptでシミュレーションした結果をWeb形式で再生。<a href="https://github.com/oha-Ohashi/ohavite/blob/main/src/sample1/board/physics.ts">ソースコード</a>
+		<h5>デモ1</h5>
+		{x:5, y:0}を目指す。一番近い指をピックアップして向かわせる。ターゲットの方向に一定の力を与え続ける。<br>
+		問題点: ターゲットに到達するその瞬間まで全く同じ力をかけ続けるので、当然盛大に通り過ぎる。以下無限ループ。
+		<div class="row mb-3">
+			<div class="col-7">
 				<div class="ratio ratio-16x9">
-				<video controls src="https://github.com/oha-Ohashi/ohavite/blob/main/public/001_f.mp4?raw=true"></video>
+				<video controls src="https://oha-ohashi.github.io/ohavite/public/001_f.mp4"></video>
 				</div>
 			</div>
+		</div>
+		<h5>デモ2</h5>
+		ターゲットとの距離が十分小さくなった瞬間に強制的に指に働く力と指の速さをゼロにする。おかげで次のターゲットに移れている。{x:6,y:0},{x:9,y:2},{x:0,y:2}と続けざまに打鍵成功。<br>
+		問題点: ある指が動くと他の指も釣られて動くという人体の性質を反映していない。
+		<div class="row mb-3">
+			<div class="col-7">
+				<div class="ratio ratio-16x9">
+				<video controls src="https://oha-ohashi.github.io/ohavite/public/002_f_done.mp4"></video>
+				</div>
+			</div>
+		</div>
+		<h5>デモ3</h5>
+		中指(黄色)と他の3つの指との間に<strong>ばね</strong>を配置。指同士の連動はそれっぽくできている。<br>
+		問題点: 0:06付近にて、小指(青丸)が目標てある{x:9, y:2}をニアミス。ばねに引っ張られて軌道がズレている。
+		<div class="row mb-3">
+			<div class="col-7">
+				<div class="ratio ratio-16x9">
+				<video controls src="https://oha-ohashi.github.io/ohavite/public/003_spring.mp4"></video>
+				</div>
+			</div>
+		</div>
+		<h5>デモ4</h5>
+		｢ターゲットに向かって力をかける｣方式を変更。毎フレーム指のx座標y座標を無理矢理ターゲットに近づける。一応与えたターゲット全てを踏んでいる。<br>
+		問題点: なんか動きが変だしそもそも手段として美しくない。力の操作だけでたどり着きたいところ。
+		<div class="row mb-5">
+			<div class="col-7">
+				<div class="ratio ratio-16x9">
+				<video controls src="https://oha-ohashi.github.io/ohavite/public/004_spring_xy.mp4"></video>
+				</div>
+			</div>
+		</div>
+		ターゲットと指の間に磁場的なものを発生させるやり方はスイングバイしちゃったりしてダメだった。<br>
+		PID制御という言葉を知っていたので導入してみたがよく分からんがダメだった。
+
+		<div class="mt-3 mb-5">
+			<h3>まとめ</h3>
+			ばねに引っ張られながらでも強い意志でそれを打ち消して、ターゲットへ真っすぐ進んでいくような指をプログラミングしたい。現在の自分の速さや加速度と、ターゲットとの位置関係を元に物理学的な計算をすれば実現できそうな気がする。しかし具体的なやり方は検討がつかない。<br>
+			何かヒントを恵んでください！
 		</div>
  
 	</div>
