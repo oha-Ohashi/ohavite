@@ -11,8 +11,8 @@ export default defineConfig({
 		outDir,
 		rollupOptions: {
 			input: {
-				sample1: resolve(root, 'sample1', 'index.html'),
-				sample2: resolve(root, 'sample2', 'index.html'),
+				sample1: resolve(base, 'sample1', 'index.html'),
+				sample2: resolve(base, 'sample2', 'index.html'),
 			},
 		},
 	},
