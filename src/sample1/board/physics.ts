@@ -114,15 +114,15 @@ function updateForce(target: {x: number, y: number}, fingers: Finger[]): Finger[
 	let fingerForceX = (forceConst * cos)// * Math.pow(closestDistance, 2)
 	let fingerForceY = (forceConst * sin)// * Math.pow(closestDistance, 2)
 
-	if(closestDistance > 0.05){
-	//if(closestDistance > -1){
+	//if(closestDistance > 0.05){
+	if(closestDistance > -1){
 		//closestFinger.fx += U[0]
 		//closestFinger.fy += U[1]
-		//closestFinger.fx = fingerForceX
-		//closestFinger.fy = fingerForceY //+ frictionForceY
+		closestFinger.fx = fingerForceX
+		closestFinger.fy = fingerForceY 
 		//closestFinger.xy.x += xU 
-		closestFinger.xy.x += (target.x - closestFinger.xy.x) / 10
-		closestFinger.xy.y += (target.y - closestFinger.xy.y) / 10
+		//closestFinger.xy.x += (target.x - closestFinger.xy.x) / 10
+		//closestFinger.xy.y += (target.y - closestFinger.xy.y) / 10
 	}else{
 		//I = [0, 0]
 		console.log("stop at " + inputCount)
