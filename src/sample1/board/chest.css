@@ -1,0 +1,13 @@
+.finger{
+	position: absolute;
+	border-radius: 50%;
+	border: 0.3px solid #9e9e9e;
+}
+#finger0{background-color: #1696ff4c;}
+#finger1{background-color: #16ff924c;}
+#finger2{background-color: #dcff164c;}
+#finger3{background-color: #ff45164c;}
+#finger4{background-color: #ff45164c;}
+#finger5{background-color: #dcff164c;}
+#finger6{background-color: #16ff924c;}
+#finger7{background-color: #1696ff4c;}

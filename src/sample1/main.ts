@@ -1,6 +1,5 @@
-//const body = document.querySelector('body')
-//body?.appendChild(document.createTextNode('sample1'))
-import { boardparent } from './board/board'
+//import { boardparent } from './board/board'
+import { boardparent } from './board/chest'
 
 let url:URL = new URL(location.href)
 let params:URLSearchParams = url.searchParams
@@ -11,7 +10,11 @@ console.log(location.search)
 if(name == 'board'){
 	const maincont:HTMLDivElement = document.querySelector('#main-cont')!
 	maincont?.appendChild(boardparent)
+}else if(name == 'chest'){
+	const maincont:HTMLDivElement = document.querySelector('#main-cont')!
+	maincont?.appendChild(boardparent)
 }else{
 }
 
 export {}
+
