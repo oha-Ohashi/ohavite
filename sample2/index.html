@@ -18,7 +18,26 @@
 		</div>
 		<h3>やりたいこと</h3>
 		<ul class="list-group">
-			<li class="list-group-item"><strong>大目標: 最強のキーボード配列を作る</strong></li>
+			<li class="list-group-item">
+				<strong>大目標: 最強のキーボード配列を作る</strong><br>
+				QWERTY配列は悪の文明。
+				<div class="row mt-5">
+					<div class="col-sm-6">
+						<img class="img-fluid" src="https://github.com/oha-Ohashi/ohavite/raw/main/public/bar.png">
+					</div>
+					<div class="col-sm-6">
+						僕のリサーチがそう言っている。
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col-sm-6">
+						<img class="img-fluid" src="https://github.com/oha-Ohashi/ohavite/raw/main/public/qwe.png">
+					</div>
+					<div class="col-sm-6">
+						<img class="img-fluid" src="https://github.com/oha-Ohashi/ohavite/raw/main/public/cur.png">
+					</div>
+				</div>
+			</li>
 			<li class="list-group-item"><strong>中目標: 人の手に近い動きをする何かを作る</strong><br>
 			ある配列を評価する時、もっとも理想的なのは人に打鍵させてそのタイムを測ることだと考える。<br>しかしこの方法は以下の問題がある:
 			<ul>
@@ -39,7 +58,7 @@
 		{x:5, y:0}を目指す。一番近い指をピックアップして向かわせる。ターゲットの方向に一定の力を与え続ける。<br>
 		問題点: ターゲットに到達するその瞬間まで全く同じ力をかけ続けるので、当然盛大に通り過ぎる。以下無限ループ。
 		<div class="row mb-3">
-			<div class="col-7">
+			<div class="col-sm-7">
 				<div class="ratio ratio-16x9">
 				<video controls src="https://github.com/oha-Ohashi/ohavite/raw/main/public/001_f.mp4"></video>
 				</div>
@@ -49,7 +68,7 @@
 		ターゲットとの距離が十分小さくなった瞬間に強制的に指に働く力と指の速さをゼロにする。おかげで次のターゲットに移れている。{x:6,y:0},{x:9,y:2},{x:0,y:2}と続けざまに打鍵成功。<br>
 		問題点: ある指が動くと他の指も釣られて動くという人体の性質を反映していない。
 		<div class="row mb-3">
-			<div class="col-7">
+			<div class="col-sm-7">
 				<div class="ratio ratio-16x9">
 				<video controls src="https://github.com/oha-Ohashi/ohavite/raw/main/public/002_f_done.mp4"></video>
 				</div>
@@ -59,7 +78,7 @@
 		中指(黄色)と他の3つの指との間に<strong>ばね</strong>を配置。指同士の連動はそれっぽくできている。<br>
 		問題点: 0:06付近にて、小指(青丸)が目標てある{x:9, y:2}をニアミス。ばねに引っ張られて軌道がズレている。
 		<div class="row mb-3">
-			<div class="col-7">
+			<div class="col-sm-7">
 				<div class="ratio ratio-16x9">
 				<video controls src="https://github.com/oha-Ohashi/ohavite/raw/main/public/003_spring.mp4"></video>
 				</div>
@@ -69,7 +88,7 @@
 		｢ターゲットに向かって力をかける｣方式を変更。毎フレーム指のx座標y座標を無理矢理ターゲットに近づける。一応与えたターゲット全てを踏んでいる。<br>
 		問題点: なんか動きが変だしそもそも手段として美しくない。力の操作だけでたどり着きたいところ。
 		<div class="row mb-5">
-			<div class="col-7">
+			<div class="col-sm-7">
 				<div class="ratio ratio-16x9">
 				<video controls src="https://github.com/oha-Ohashi/ohavite/raw/main/public/004_spring_xy.mp4"></video>
 				</div>
